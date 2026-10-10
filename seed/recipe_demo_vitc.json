@@ -1,0 +1,49 @@
+{
+  "code": "VITC-DEMO",
+  "version": 1,
+  "name": "Vitamin C 250 mg Chewable (3-step demo)",
+  "product": "Ascorbic acid 250 mg chewable tablets (demo)",
+  "batch_size": 20000,
+  "batch_size_uom": "tablets",
+  "batch_prefix": "VTC",
+  "note": "Second product used only to prove the engine is generic (TC-21). Added as a JSON file, no code change.",
+  "steps": [
+    {
+      "code": "S0",
+      "name": "Line clearance",
+      "blocks": [
+        {"type": "CHECKLIST", "config": {"items": [
+          {"key": "area_clear", "text": "Area free of previous product and documents"},
+          {"key": "equipment_clean", "text": "Equipment clean labels current"}
+        ]}},
+        {"type": "SIGNATURE", "config": {"meaning": "PERFORMED", "verifier_required": true, "verifier_roles": ["SUPERVISOR"]}}
+      ]
+    },
+    {
+      "code": "S1",
+      "name": "Dispensing",
+      "blocks": [
+        {"type": "MATERIAL_DISPENSE", "config": {
+          "allowed_balances": ["BAL-01", "BAL-03"],
+          "items": [
+            {"material_code": "MAT-ASC", "target_qty": 5.000, "uom": "kg", "tolerance_pct": 0.5},
+            {"material_code": "MAT-MCC", "target_qty": 4.000, "uom": "kg", "tolerance_pct": 1.0}
+          ]
+        }},
+        {"type": "SIGNATURE", "config": {"meaning": "PERFORMED", "verifier_required": true, "verifier_roles": ["OPERATOR", "SUPERVISOR"]}}
+      ]
+    },
+    {
+      "code": "S2",
+      "name": "Blending",
+      "blocks": [
+        {"type": "EQUIPMENT_CHECK", "config": {"slots": [{"slot": "blender", "allowed": ["BLN-01"]}]}},
+        {"type": "PARAMETER_ENTRY", "config": {"parameters": [
+          {"key": "blend_time_min", "label": "Blend time", "type": "number", "unit": "min", "min": 14, "max": 16}
+        ]}},
+        {"type": "YIELD_CALC", "config": {"theoretical_qty": 9.0, "uom": "kg", "min_pct": 98.0, "max_pct": 100.5}},
+        {"type": "SIGNATURE", "config": {"meaning": "PERFORMED"}}
+      ]
+    }
+  ]
+}

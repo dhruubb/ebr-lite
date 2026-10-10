@@ -1,0 +1,16 @@
+{
+  "_note": "Equipment master. BAL-02 has calibration overdue (TC-06). RMG-02 is DIRTY (TC-07). BAL-03 is an extra calibrated bench balance so small excipients can still be weighed.",
+  "equipment": [
+    {"code": "BAL-01", "name": "Floor balance 150 kg",                    "equipment_type": "BALANCE",    "status": "CLEAN", "calibration_due_date": "2027-03-31"},
+    {"code": "BAL-02", "name": "Bench balance 6 kg",                      "equipment_type": "BALANCE",    "status": "CLEAN", "calibration_due_date": "2026-09-30"},
+    {"code": "BAL-03", "name": "Bench balance 6 kg (spare)",              "equipment_type": "BALANCE",    "status": "CLEAN", "calibration_due_date": "2027-01-31"},
+    {"code": "SFT-01", "name": "Vibro sifter",                            "equipment_type": "SIFTER",     "status": "CLEAN"},
+    {"code": "RMG-01", "name": "Rapid mixer granulator",                  "equipment_type": "GRANULATOR", "status": "CLEAN"},
+    {"code": "RMG-02", "name": "Rapid mixer granulator (line 2)",         "equipment_type": "GRANULATOR", "status": "DIRTY"},
+    {"code": "FBD-01", "name": "Fluid bed dryer",                         "equipment_type": "DRYER",      "status": "CLEAN"},
+    {"code": "MIL-01", "name": "Multi mill",                              "equipment_type": "MILL",       "status": "CLEAN"},
+    {"code": "BLN-01", "name": "Octagonal blender",                       "equipment_type": "BLENDER",    "status": "CLEAN"},
+    {"code": "CMP-01", "name": "Rotary compression machine, 27-station",  "equipment_type": "PRESS",      "status": "CLEAN", "punch_set_id": "PS-27-600"},
+    {"code": "COT-01", "name": "Auto coater",                             "equipment_type": "COATER",     "status": "CLEAN"}
+  ]
+}

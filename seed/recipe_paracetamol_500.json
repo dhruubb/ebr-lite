@@ -1,0 +1,166 @@
+{
+  "code": "PCM500-FCT",
+  "version": 1,
+  "name": "Paracetamol 500 mg Film-Coated Tablets",
+  "product": "Paracetamol 500 mg film-coated tablets",
+  "batch_size": 100000,
+  "batch_size_uom": "tablets",
+  "batch_prefix": "PCM",
+  "note": "Illustrative values only (textbook ranges), not a registered formula. S11 QA review & disposition is handled at batch level: COMPLETED -> UNDER_REVIEW -> APPROVED | REJECTED.",
+  "steps": [
+    {
+      "code": "S0",
+      "name": "Line clearance",
+      "blocks": [
+        {"type": "CHECKLIST", "config": {"items": [
+          {"key": "prev_product_removed", "text": "Previous product, materials and labels removed from the area"},
+          {"key": "prev_docs_removed", "text": "Previous batch documents removed"},
+          {"key": "area_clean", "text": "Area and equipment visibly clean; cleaning status labels current"},
+          {"key": "env_within_limits", "text": "Room temperature and RH within area limits"},
+          {"key": "clearance_label", "text": "Line clearance label affixed"}
+        ]}},
+        {"type": "SIGNATURE", "config": {"meaning": "PERFORMED", "roles": ["OPERATOR"], "verifier_required": true, "verifier_roles": ["SUPERVISOR"]}}
+      ]
+    },
+    {
+      "code": "S1",
+      "name": "Dispensing",
+      "blocks": [
+        {"type": "MATERIAL_DISPENSE", "config": {
+          "allowed_balances": ["BAL-01", "BAL-02", "BAL-03"],
+          "items": [
+            {"material_code": "MAT-PCM", "target_qty": 50.000, "uom": "kg", "tolerance_pct": 0.5},
+            {"material_code": "MAT-MST", "target_qty": 5.000,  "uom": "kg", "tolerance_pct": 1.0},
+            {"material_code": "MAT-PVP", "target_qty": 1.500,  "uom": "kg", "tolerance_pct": 1.0},
+            {"material_code": "MAT-SSG", "target_qty": 2.000,  "uom": "kg", "tolerance_pct": 1.0},
+            {"material_code": "MAT-TLC", "target_qty": 1.000,  "uom": "kg", "tolerance_pct": 1.0},
+            {"material_code": "MAT-MGS", "target_qty": 0.500,  "uom": "kg", "tolerance_pct": 1.0},
+            {"material_code": "MAT-OPC", "target_qty": 1.800,  "uom": "kg", "tolerance_pct": 1.0}
+          ]
+        }},
+        {"type": "SIGNATURE", "config": {"meaning": "PERFORMED", "roles": ["OPERATOR"], "verifier_required": true, "verifier_roles": ["OPERATOR", "SUPERVISOR"]}}
+      ]
+    },
+    {
+      "code": "S2",
+      "name": "Sifting",
+      "blocks": [
+        {"type": "EQUIPMENT_CHECK", "config": {"slots": [{"slot": "sifter", "allowed": ["SFT-01"]}]}},
+        {"type": "PARAMETER_ENTRY", "config": {"parameters": [
+          {"key": "sieve_mesh", "label": "Sieve size", "type": "number", "unit": "mesh #", "min": 40, "max": 40},
+          {"key": "sieve_intact_before", "label": "Sieve integrity before use OK", "type": "boolean", "expected": true},
+          {"key": "sieve_intact_after", "label": "Sieve integrity after use OK", "type": "boolean", "expected": true}
+        ]}},
+        {"type": "SIGNATURE", "config": {"meaning": "PERFORMED"}}
+      ]
+    },
+    {
+      "code": "S3",
+      "name": "Binder preparation",
+      "blocks": [
+        {"type": "PARAMETER_ENTRY", "config": {"parameters": [
+          {"key": "water_qty_l", "label": "Purified water added", "type": "number", "unit": "L", "min": 11.5, "max": 12.5},
+          {"key": "mixing_time_min", "label": "Mixing time", "type": "number", "unit": "min", "min": 10, "max": 15},
+          {"key": "solution_clear", "label": "Binder solution clear", "type": "boolean", "expected": true}
+        ]}},
+        {"type": "SIGNATURE", "config": {"meaning": "PERFORMED"}}
+      ]
+    },
+    {
+      "code": "S4",
+      "name": "Wet granulation (RMG)",
+      "blocks": [
+        {"type": "EQUIPMENT_CHECK", "config": {"slots": [{"slot": "granulator", "allowed": ["RMG-01", "RMG-02"]}]}},
+        {"type": "PARAMETER_ENTRY", "config": {"parameters": [
+          {"key": "impeller_speed_rpm", "label": "Impeller speed", "type": "number", "unit": "rpm"},
+          {"key": "chopper_speed_rpm", "label": "Chopper speed", "type": "number", "unit": "rpm"},
+          {"key": "binder_addition_min", "label": "Binder addition time", "type": "number", "unit": "min"},
+          {"key": "kneading_time_min", "label": "Kneading time", "type": "number", "unit": "min", "min": 2, "max": 4},
+          {"key": "end_point_amps", "label": "End-point power consumption", "type": "number", "unit": "A"}
+        ]}},
+        {"type": "SIGNATURE", "config": {"meaning": "PERFORMED"}}
+      ]
+    },
+    {
+      "code": "S5",
+      "name": "Drying (FBD)",
+      "blocks": [
+        {"type": "EQUIPMENT_CHECK", "config": {"slots": [{"slot": "dryer", "allowed": ["FBD-01"]}]}},
+        {"type": "PARAMETER_ENTRY", "config": {"parameters": [
+          {"key": "inlet_temp_c", "label": "Inlet air temperature", "type": "number", "unit": "°C", "min": 55, "max": 65},
+          {"key": "outlet_temp_c", "label": "Outlet air temperature", "type": "number", "unit": "°C"},
+          {"key": "drying_time_min", "label": "Drying time", "type": "number", "unit": "min"},
+          {"key": "lod_pct", "label": "Loss on drying (IPC by QC)", "type": "number", "unit": "%", "min": 1.0, "max": 2.5}
+        ]}},
+        {"type": "SIGNATURE", "config": {"meaning": "PERFORMED"}}
+      ]
+    },
+    {
+      "code": "S6",
+      "name": "Milling / sizing",
+      "blocks": [
+        {"type": "EQUIPMENT_CHECK", "config": {"slots": [{"slot": "mill", "allowed": ["MIL-01"]}]}},
+        {"type": "PARAMETER_ENTRY", "config": {"parameters": [
+          {"key": "screen_size_mm", "label": "Screen size", "type": "number", "unit": "mm", "min": 1.0, "max": 1.0},
+          {"key": "mill_speed_rpm", "label": "Mill speed", "type": "number", "unit": "rpm"}
+        ]}},
+        {"type": "SIGNATURE", "config": {"meaning": "PERFORMED"}}
+      ]
+    },
+    {
+      "code": "S7",
+      "name": "Blending & lubrication",
+      "blocks": [
+        {"type": "EQUIPMENT_CHECK", "config": {"slots": [{"slot": "blender", "allowed": ["BLN-01"]}]}},
+        {"type": "PARAMETER_ENTRY", "config": {"parameters": [
+          {"key": "pre_lube_blend_min", "label": "Blend time before lubrication (10 min ±10%)", "type": "number", "unit": "min", "min": 9.0, "max": 11.0},
+          {"key": "post_lube_blend_min", "label": "Blend time after lubrication (3 min ±10%)", "type": "number", "unit": "min", "min": 2.7, "max": 3.3}
+        ]}},
+        {"type": "SIGNATURE", "config": {"meaning": "PERFORMED"}}
+      ]
+    },
+    {
+      "code": "S8",
+      "name": "Compression",
+      "blocks": [
+        {"type": "EQUIPMENT_CHECK", "config": {"slots": [{"slot": "press", "allowed": ["CMP-01"]}]}},
+        {"type": "PARAMETER_ENTRY", "config": {"parameters": [
+          {"key": "punch_set_id", "label": "Punch set ID", "type": "text", "expected": "PS-27-600"},
+          {"key": "turret_speed_rpm", "label": "Turret speed", "type": "number", "unit": "rpm"}
+        ]}},
+        {"type": "SIGNATURE", "config": {"meaning": "APPROVED", "roles": ["SUPERVISOR"], "label": "Supervisor approves machine setup"}},
+        {"type": "IPC_SAMPLING", "config": {"interval_min": 30, "min_samples": 3, "checks": [
+          {"key": "avg_weight_mg", "label": "Average weight (20 tabs)", "unit": "mg", "min": 570, "max": 630},
+          {"key": "hardness_n", "label": "Hardness", "unit": "N", "min": 80, "max": 120},
+          {"key": "thickness_mm", "label": "Thickness", "unit": "mm", "min": 5.2, "max": 5.6},
+          {"key": "friability_pct", "label": "Friability (USP <1216>)", "unit": "%", "max": 1.0},
+          {"key": "disintegration_min", "label": "Disintegration (USP <701>)", "unit": "min", "max": 15}
+        ]}},
+        {"type": "SIGNATURE", "config": {"meaning": "PERFORMED"}}
+      ]
+    },
+    {
+      "code": "S9",
+      "name": "Film coating",
+      "blocks": [
+        {"type": "EQUIPMENT_CHECK", "config": {"slots": [{"slot": "coater", "allowed": ["COT-01"]}]}},
+        {"type": "PARAMETER_ENTRY", "config": {"parameters": [
+          {"key": "pan_speed_rpm", "label": "Pan speed", "type": "number", "unit": "rpm"},
+          {"key": "coat_inlet_temp_c", "label": "Inlet air temperature", "type": "number", "unit": "°C"},
+          {"key": "spray_rate_g_min", "label": "Spray rate", "type": "number", "unit": "g/min"},
+          {"key": "weight_gain_pct", "label": "Coating weight gain", "type": "number", "unit": "%", "min": 2.5, "max": 3.5},
+          {"key": "coated_disintegration_min", "label": "Disintegration, coated (USP <701>)", "type": "number", "unit": "min", "max": 30}
+        ]}},
+        {"type": "SIGNATURE", "config": {"meaning": "PERFORMED"}}
+      ]
+    },
+    {
+      "code": "S10",
+      "name": "Yield reconciliation",
+      "blocks": [
+        {"type": "YIELD_CALC", "config": {"theoretical_qty": 100000, "uom": "tablets", "min_pct": 97.0, "max_pct": 100.5, "roles": ["SUPERVISOR"]}},
+        {"type": "SIGNATURE", "config": {"meaning": "PERFORMED", "roles": ["SUPERVISOR"]}}
+      ]
+    }
+  ]
+}

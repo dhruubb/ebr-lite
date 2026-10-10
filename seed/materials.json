@@ -1,0 +1,14 @@
+{
+  "_note": "Illustrative material master (simulates ERP/WMS). Not a registered formula.",
+  "materials": [
+    {"code": "MAT-PCM", "name": "Paracetamol", "material_type": "API", "uom": "kg"},
+    {"code": "MAT-MST", "name": "Maize starch", "material_type": "EXCIPIENT", "uom": "kg"},
+    {"code": "MAT-PVP", "name": "Povidone K30", "material_type": "EXCIPIENT", "uom": "kg"},
+    {"code": "MAT-SSG", "name": "Sodium starch glycolate", "material_type": "EXCIPIENT", "uom": "kg"},
+    {"code": "MAT-TLC", "name": "Talc", "material_type": "EXCIPIENT", "uom": "kg"},
+    {"code": "MAT-MGS", "name": "Magnesium stearate", "material_type": "EXCIPIENT", "uom": "kg"},
+    {"code": "MAT-OPC", "name": "Film-coating system (HPMC-based)", "material_type": "EXCIPIENT", "uom": "kg"},
+    {"code": "MAT-ASC", "name": "Ascorbic acid (Vitamin C)", "material_type": "API", "uom": "kg"},
+    {"code": "MAT-MCC", "name": "Microcrystalline cellulose", "material_type": "EXCIPIENT", "uom": "kg"}
+  ]
+}

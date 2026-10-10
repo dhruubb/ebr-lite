@@ -1,0 +1,17 @@
+{
+  "_note": "Material lots (simulates WMS). PCM-2602 is QUARANTINE (TC-02), PCM-2401 is RELEASED but EXPIRED (TC-03), MST-2502 is REJECTED.",
+  "lots": [
+    {"lot_no": "PCM-2601", "material_code": "MAT-PCM", "status": "RELEASED",   "expiry_date": "2028-06-30", "qty_available": 150.0},
+    {"lot_no": "PCM-2602", "material_code": "MAT-PCM", "status": "QUARANTINE", "expiry_date": "2028-09-30", "qty_available": 200.0},
+    {"lot_no": "PCM-2401", "material_code": "MAT-PCM", "status": "RELEASED",   "expiry_date": "2026-03-31", "qty_available": 40.0},
+    {"lot_no": "MST-2601", "material_code": "MAT-MST", "status": "RELEASED",   "expiry_date": "2028-01-31", "qty_available": 50.0},
+    {"lot_no": "MST-2502", "material_code": "MAT-MST", "status": "REJECTED",   "expiry_date": "2027-07-31", "qty_available": 25.0},
+    {"lot_no": "PVP-2601", "material_code": "MAT-PVP", "status": "RELEASED",   "expiry_date": "2028-03-31", "qty_available": 20.0},
+    {"lot_no": "SSG-2601", "material_code": "MAT-SSG", "status": "RELEASED",   "expiry_date": "2028-02-29", "qty_available": 20.0},
+    {"lot_no": "TLC-2601", "material_code": "MAT-TLC", "status": "RELEASED",   "expiry_date": "2029-01-31", "qty_available": 20.0},
+    {"lot_no": "MGS-2601", "material_code": "MAT-MGS", "status": "RELEASED",   "expiry_date": "2028-05-31", "qty_available": 10.0},
+    {"lot_no": "OPC-2601", "material_code": "MAT-OPC", "status": "RELEASED",   "expiry_date": "2027-12-31", "qty_available": 15.0},
+    {"lot_no": "ASC-2601", "material_code": "MAT-ASC", "status": "RELEASED",   "expiry_date": "2028-04-30", "qty_available": 30.0},
+    {"lot_no": "MCC-2601", "material_code": "MAT-MCC", "status": "RELEASED",   "expiry_date": "2028-08-31", "qty_available": 30.0}
+  ]
+}

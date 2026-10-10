@@ -1,0 +1,17 @@
+{
+  "_note": "Demo users only. All passwords are 'Demo@123'. One person = one account (no shared logins, ALCOA+ Attributable).",
+  "default_password": "Demo@123",
+  "roles": [
+    {"code": "OPERATOR", "description": "Executes batch steps, enters data, signs as performer/verifier"},
+    {"code": "SUPERVISOR", "description": "Verifies critical steps, approves setups, closes deviations, creates batches"},
+    {"code": "QA", "description": "Reviews executed batch records by exception and decides disposition"},
+    {"code": "ADMIN", "description": "Maintains users and master recipes; no GMP execution rights"}
+  ],
+  "users": [
+    {"username": "op1", "full_name": "Omkar Patil", "role": "OPERATOR"},
+    {"username": "op2", "full_name": "Neha Kulkarni", "role": "OPERATOR"},
+    {"username": "sup1", "full_name": "Rahul Deshmukh", "role": "SUPERVISOR"},
+    {"username": "qa1", "full_name": "Anita Joshi", "role": "QA"},
+    {"username": "admin", "full_name": "System Administrator", "role": "ADMIN"}
+  ]
+}
